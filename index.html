@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='by'>
+<html lang="by">
 <head>
   <meta charset="utf-8"/>
   <link href="css/fonts.css" rel="stylesheet" type="text/css"/>
@@ -8,39 +8,41 @@
   <title>Test Front End</title>
 </head>
 <body>
-  <div id="sheet" class="container">
+  <div class="container">
     <div class="panel">
       <img src="img/text.png" usemap="#map">
+      <map name="map">
+        <area shape="circle" coords="1265,80,80" href="javascript:move();">
+      </map>
     </div>
     <div class="footer">
-      <dir class="left">
+      <dir class="footer__left">
         <img src="img/horse.png">
         <br/>
         <span>Dzerzhinskogo av. 57, Minsk Belarus</span>
         <br/>
         <span>@ Oxagile, 2020</span>
       </dir>
-      <dir class="right">
+      <dir class="footer__right">
         <a href="">Prescribing information</a>
         |
         <a href="">References</a>
       </dir>
-      
     </div>
   </div>
 
-  <div class='table'>
+  <div class="table">
     <table>
       <tr>
         <th>Стартавае значэнне</th>
         <th>
-          <input id="start" onchange="calculate()">
+          <input class="start" onchange="calculate()">
         </th>
       </tr>
       <tr>
         <th>Адсотак</th>
         <th>
-          <input id="percent" onchange="calculate()">
+          <input class="percent" onchange="calculate()">
         </th>
       </tr>
       <tr>
@@ -49,21 +51,18 @@
       </tr>
       <tr>
         <td>Месяц 1</td>
-        <td id='month1'></td>
+        <td class="month1"></td>
       </tr>
       <tr>
         <td>Месяц 2</td>
-        <td id='month2'></td>
+        <td class="month2"></td>
       </tr>
       <tr>
         <td>Месяц 3</td>
-        <td id='month3'></td>
+        <td class="month3"></td>
       </tr>
     </table>
   </div>
-  <map name="map">
-    <area shape="circle" coords="1265,80,80" href="javascript:moveLeft();">
-  </map>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,20 +1,21 @@
-var sheet = document.getElementById('sheet');
+var container = document.getElementsByClassName('container')[0];
+var startInput = document.getElementsByClassName('start')[0];
+var percentInput = document.getElementsByClassName('percent')[0];
+var month1Input = document.getElementsByClassName('month1')[0];
+var month2Input = document.getElementsByClassName('month2')[0];
+var month3Input = document.getElementsByClassName('month3')[0];
 var left = 0;
 
-function moveLeft() {
-  setInterval(function() {
-    if (left > -2300) {
-      sheet.style.left = `${left - 1}px`
-      left -= 10; 
-    }
-  }, 5);   
+function move() {
+  setInterval(performMove, 5);   
 };
 
-var startInput = document.getElementById('start');
-var percentInput = document.getElementById('percent');
-var month1Input = document.getElementById('month1');
-var month2Input = document.getElementById('month2');
-var month3Input = document.getElementById('month3');
+function performMove() {
+  if (left > -2300) {
+    container.style.left = `${left - 1}px`
+    left -= 10; 
+  }
+};
 
 function calculate() {
   var start = parseInt(startInput.value);
