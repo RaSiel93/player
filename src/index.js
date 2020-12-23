@@ -12,38 +12,47 @@ const button = document.querySelector('.button');
 var left = 0;
 
 const handleButton = () => {
-  button.addEventListener('click', () => {
-      container.classList.toggle('hide');
-    }
-  );
+  button.addEventListener('click', toogleContainer);
 }
 
-const move = () => {
-  setInterval(performMove, 5);   
-};
+const handleKeypress = () => {
+  document.addEventListener('keypress', (e) => {
+    if (e.keyCode == 32) {
+      toogleContainer();
+    }
+  })
+}
 
-const performMove = () => {
-  if (left > -2300) {
-    container.style.left = `${left - 1}px`
-    left -= 10; 
-  }
-};
+const handleInputs = () => {
+  startInput.addEventListener('change', () => { calculate() });
+  percentInput.addEventListener('change', () => { calculate() });
+}
+
+const toogleContainer = () => container.classList.toggle('hide');
 
 const calculate = () => {
-  var start = parseInt(startInput.value);
-  var percent = parseInt(percentInput.value);
+  if (startInput.checkValidity() && percentInput.checkValidity()) {
+    var start = parseFloat(startInput.value);
+    var percent = parseFloat(percentInput.value);
 
-  if (start && percent) {
-    month1 = start + start * percent / 100.;
-    month2 = month1 + month1 * percent / 100.;
-    month3 = month2 + month2 * percent / 100.;
+    if (start && percent) {
+      const month1 = start + start * percent / 100.;
+      const month2 = month1 + month1 * percent / 100.;
+      const month3 = month2 + month2 * percent / 100.;
 
-    month1Input.textContent = month1;
-    month2Input.textContent = month2;
-    month3Input.textContent = month3;
+      month1Input.textContent = month1;
+      month2Input.textContent = month2;
+      month3Input.textContent = month3;
+    }
+  } else {
+    month1Input.textContent = '';
+    month2Input.textContent = '';
+    month3Input.textContent = '';  
   }
 }
 
 window.onload = () => {
   handleButton();
+  handleInputs();
+  handleKeypress();
 }
