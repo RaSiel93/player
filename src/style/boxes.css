@@ -1,0 +1,119 @@
+.content {
+  overflow-y: scroll;
+  width: 94vw;
+  max-height: calc(90vh - 34px);
+  margin: 30px auto;
+  transition: linear 1s;
+  /*border: 1px solid #000;*/
+  box-shadow: 0 0 3px #000;
+  border-radius: 25px;
+}
+
+.boxes {
+  background-color: #00817c;
+  /*height: 500px;*/
+  /*padding: 50px;*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+  /*margin: 50px auto;*/
+  min-height: min-content;
+  transition: linear .1s;
+}
+
+.boxes div {
+  width: 400px;
+  height: 200px;
+  /*border: 1px #000 solid;*/
+  background-color: #fff;
+  margin: 20px;
+  box-shadow: 0px 5px 10px #000;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.active .boxes {
+  background-color: #FFA500;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  padding-right: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00817c;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #FFA500;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}

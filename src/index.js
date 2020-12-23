@@ -8,6 +8,8 @@ const month1Input = document.querySelector('.month1');
 const month2Input = document.querySelector('.month2');
 const month3Input = document.querySelector('.month3');
 const button = document.querySelector('.button');
+const switcher = document.querySelector('.switcher');
+const content = document.querySelector('.content');
 
 var left = 0;
 
@@ -28,8 +30,14 @@ const handleInputs = () => {
   percentInput.addEventListener('change', () => { calculate() });
 }
 
+const handleSwitcher = () => {
+  switcher.addEventListener('change', () => { toogleContent() });
+}
+ 
 const toogleContainer = () => container.classList.toggle('hide');
+const toogleContent = () => content.classList.toggle('active');
 
+const randomColor = () => "#"+((1<<24)*Math.random()|0).toString(16);
 const calculate = () => {
   if (startInput.checkValidity() && percentInput.checkValidity()) {
     var start = parseFloat(startInput.value);
@@ -52,7 +60,19 @@ const calculate = () => {
 }
 
 window.onload = () => {
-  handleButton();
-  handleInputs();
+  if (button) {
+    handleButton();
+  }
+  if (startInput && percentInput) {
+    handleInputs();
+  }
   handleKeypress();
+  if (switcher) {
+    handleSwitcher();
+  }
+
+  const boxes = document.querySelector('.boxes').children;
+ 
+  for (let box of boxes) { box.style.backgroundColor = randomColor() }
 }
+

@@ -9,10 +9,13 @@ module.exports = (env, argv) => {
     const config = {
       mode: isProduction ? 'production' : 'development',
       watch: !isProduction,
-      entry: './src/index.js',
+      entry: {
+        index: './src/index.js',
+        boxes: './src/boxes.js'
+      },
       output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'index.js',
+        filename: '[name].bundle.js',
         publicPath: '',
       },
       module: {
@@ -57,10 +60,13 @@ module.exports = (env, argv) => {
         new HtmlWebpackPlugin({
           template: 'index.html'
         }),
-        new MiniCssExtractPlugin({
-          filename: 'style.css'
+        new HtmlWebpackPlugin({
+          template: 'boxes.html',
+          filename: 'boxes.html'
         }),
-  
+        new MiniCssExtractPlugin({
+          filename: '[name].css'
+        })
       ]
     }
     return config;
