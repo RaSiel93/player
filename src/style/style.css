@@ -121,7 +121,7 @@ img[usemap], map area{
   gap: 10px;
 }
 
-.wrapper div {
+.wrapper > div {
   border: 1px solid #000;
 }
 

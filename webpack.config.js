@@ -11,7 +11,8 @@ module.exports = (env, argv) => {
       watch: !isProduction,
       entry: {
         index: './src/index.js',
-        boxes: './src/boxes.js'
+        boxes: './src/boxes.js',
+        boxes: './src/timeline.js',
       },
       output: {
         path: path.resolve(__dirname, './dist'),
@@ -63,6 +64,10 @@ module.exports = (env, argv) => {
         new HtmlWebpackPlugin({
           template: 'boxes.html',
           filename: 'boxes.html'
+        }),
+        new HtmlWebpackPlugin({
+          template: 'timeline.html',
+          filename: 'timeline.html'
         }),
         new MiniCssExtractPlugin({
           filename: '[name].css'
