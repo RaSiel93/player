@@ -2,7 +2,7 @@ import './style/timeline.css'
 
 const zoomInput = document.querySelector('.zoom');
 const timelineElement = document.querySelector('.timeline');
-let zoom = 10; 
+let zoom = 10;
 let globalDuration = 1000;
 let userCounter = 0;
 
@@ -15,9 +15,9 @@ const updateTimeline = () => {
 
 const updateMarkers = () => {
   const markers = document.querySelectorAll('.marker');
- 
+
   if (markers) {
-    for (let marker of markers) { 
+    for (let marker of markers) {
       marker.style.left = parseInt(
         marker.getAttribute('data-start')
       ) / 100. * zoom + "%";
@@ -72,7 +72,7 @@ const generateUser = () => {
   markers.classList.add('markers');
 
   for (let step = 0; step < markerCount; step++) {
-    var marker = document.createElement('div');  
+    var marker = document.createElement('div');
     marker.classList.add('marker');
 
     let [start, duration] = generateStartAndDuration();

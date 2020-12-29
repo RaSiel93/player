@@ -1,10 +1,13 @@
 body {
   margin: 0;
-  background-image: url(../img/background.jpg);
-  background-size: cover;
   font-size: 20px;
   font-family: "Helvetica Regular";
   color: 000;
+}
+
+body.index {
+  background-image: url(../img/background.jpg);
+  background-size: cover;
 }
 
 *,

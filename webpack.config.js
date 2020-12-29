@@ -13,6 +13,7 @@ module.exports = (env, argv) => {
         index: './src/index.js',
         boxes: './src/boxes.js',
         boxes: './src/timeline.js',
+        boxes: './src/player.js',
       },
       output: {
         path: path.resolve(__dirname, './dist'),
@@ -43,7 +44,7 @@ module.exports = (env, argv) => {
             ]
           },
           {
-            test: /\.(png|jpeg|jpg|ttf|woff)$/,
+            test: /\.(png|jpeg|jpg|ttf|woff|mp3)$/,
             use: [
               {
                 loader: 'file-loader',
@@ -53,7 +54,7 @@ module.exports = (env, argv) => {
           {
             test: /\.html$/i,
             loader: 'html-loader',
-          },
+          }
         ]
       },
       plugins: [
@@ -68,6 +69,10 @@ module.exports = (env, argv) => {
         new HtmlWebpackPlugin({
           template: 'timeline.html',
           filename: 'timeline.html'
+        }),
+        new HtmlWebpackPlugin({
+          template: 'player.html',
+          filename: 'player.html'
         }),
         new MiniCssExtractPlugin({
           filename: '[name].css'
