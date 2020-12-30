@@ -1,3 +1,7 @@
+:root{
+  --player-color-bg: #374645;
+}
+
 .player {
   /*height: 64px;*/
   display: flex;
@@ -5,7 +9,7 @@
 }
 
 .player--control {
-  background-color: #374645;
+  background-color: var(--player-color-bg);
   padding: 16px;
   width: 64px;
   height: 64px;
@@ -53,11 +57,25 @@
   z-index: 900;
 }
 
-.time {
+.player--time {
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 2px solid #000;
   margin-left: 100px;
   width: 2500px;
 }
 
+.player--time canvas {
+  /*width: 100%;*/
+}
+
+/*.player--time line, .player--time path {
+  display: block;
+  stroke-width: 3;
+  stroke: #000;
+  z-index: 1000;
+}
+*/
 .player--navigation {
   position: sticky;
   z-index: 1100;
@@ -76,7 +94,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #374645;
+  background-color: var(--player-color-bg);
 }
 
 .player--navigation svg {
@@ -129,18 +147,18 @@
   /*height: 100px;*/
   /*width: 1000px;*/
   transition: linear .1s;
-  background-color: #374645;
+  background-color: var(--player-color-bg);
   border: none;
   border-bottom: 1px solid #000;
 }
 
-.player-timeline .time {
+.player-timeline .player--time {
   height: 40px;
   background-color: #fff;
 }
 
 .player-timeline .user {
-  border-bottom: 1px solid #000;
+  /*border-bottom: 1px solid #000;*/
   display: flex;
   /*border: none;*/
 }
@@ -150,6 +168,7 @@
   position: relative;
   transition: linear .2s;
   width: 100%;
+  border-bottom: 1px solid #000;
 }
 
 .markers .marker {
@@ -162,19 +181,6 @@
   border: none;
 /*  left: attr(data-start) " ";
   width: attr(data-duration) " ";*/
-}
-
-.time {
-  display: flex;
-  /*z-index: 1000;*/
-  justify-content: space-evenly;
-  border-bottom: 2px solid #000;
-  /*background-image: url(../img/player.png);*/
-  /*background-size: contain;*/
-}
-
-.time div {
-  border-left: 1px solid #000;
 }
 
 .label {
@@ -190,6 +196,7 @@
   color: #fff;
   font-size: 16px;
   font-weight: bold;
+  border-bottom: 1px solid #000;
 }
 
 /*.user1 {
